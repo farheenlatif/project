@@ -7,6 +7,7 @@ which makes it difficult to do feature engineering and achieve high accuracy due
 Feature engineering is the process of selecting and transforming the data to create features that
 can be used to train a predictive model. However, with multiple time series, it can be difficult to
 identify the most important features and how they relate to each other.
+![Alt text](https://cdn.educba.com/academy/wp-content/uploads/2020/05/Time-Series-Analysis.jpg)
 ## *Dataset availability*
 The data will be used from this site:
 - [https://comtrade.un.org/data](#index) [Site link](https://comtrade.un.org/data)

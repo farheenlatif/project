@@ -100,4 +100,55 @@ The next step drops columns "Partner" and "Trade Flow" from the df DataFrame, as
 - [Removes any rows with a "Partner Code" of 0, indicating an unknown partner.](#index)
 - [Fills any missing values with 0.](#index)
 
+The joining function essentially ensures that the resulting DataFrame has all unique year-country pairs, with missing values filled in with 0. This is important as it allows for the creation of a pivot table where each row represents a unique country and each column represents a unique year.
+
+Overall, these preprocessing steps are preparing the data for analysis by ensuring that all required columns are present, and that there are no missing or duplicate values. It also creates two separate DataFrames for exports and imports, which can be used for further analysis. Finally, it creates a complete DataFrame with all unique year-country pairs, which can be used to create a pivot table for analysis.
+## ***Visualizations***
+The first visualization plots the imports of Pakistan with top 10 countries with respect to Trade Value in dollars of the year 2021.
+
+<img width="468" alt="v1" src="https://github.com/farheenlatif/project/assets/88893044/00e9ea69-c398-4d57-bc02-8f8428ad6728">
+
+The second visualization plots the export value in US dollars over time for the top 10 partner countries with the highest export values. The data used for this visualization is contained in the df_pivot dataframe.
+
+<img width="480" alt="v2" src="https://github.com/farheenlatif/project/assets/88893044/cc7b7a5a-61ab-4650-84cb-bfda78b57ee3">
+
+## ***Model Training***
+## ***Concept of Lags and Moving Averages***
+In time series analysis, lags and moving averages are used to model and forecast future values based on past observations.
+
+A lag is simply a shift in the time series data by a specific number of time periods. For instance, a lag of 1 on a monthly dataset would mean that the value of each observation is replaced by the value from one month prior. This can be useful for detecting trends and seasonality in the data, as well as for removing autocorrelation.
+
+Moving averages, on the other hand, smooth out the data by calculating the mean of a specified number of past observations. For example, a 3-period moving average on a monthly dataset would replace each observation with the average of that observation and the two prior ones. This can help to remove noise in the data and highlight long-term trends.
+
+In this specific dataset, lags and moving averages are used to create additional features that may help to improve the accuracy of a linear regression model for forecasting.
+## ***Training Workflow***
+We performed time series analysis on a dataset containing yearly export data for various countries. The analysis is performed using a for loop that iterates over each country's column in the dataset.
+
+For each country, the code creates a new DataFrame with the country's yearly export data and several lag and moving average features. The lag features are created by shifting the country's export data by 1, 2, and 3 years. The moving average features are created by calculating the rolling mean of the country's export data over windows of 3, 5, and 7 years.
+
+The data is then scaled using the MinMaxScaler, which scales each feature to a range between 0 and 1. The scaled data is split into training and testing sets, with the first 18 years used for training and the last 2 years used for testing.
+
+A linear regression model is then trained on the training set using the lag and moving average features as inputs and the country's export data as the output. The model is then used to make predictions on the test set.
+
+The root mean squared error `RMSE` is calculated as a measure of the difference between the predicted export values and the actual export values for each country. The for loop iterates over each country's column in the dataset, appending the predicted export values and actual export values to separate lists, which are then used to calculate the overall RMSE for the dataset.
+## ***Scoring Metric***
+RMSE value of 0.056 means that the average difference between the predicted and actual export values for the test set, across all the countries, is about 5.6% of the range of the exported values. Since the exported values are scaled between 0 and 1, this means that the average difference between the predicted and actual export values for the test set is around 0.056, or 5.6% of the total range of the exported values. This is a reasonably low error rate and indicates that the model is performing well in predicting the future exports of these countries based on their past export patterns.
+
+<img width="480" alt="v3" src="https://github.com/farheenlatif/project/assets/88893044/d23e6671-d935-4281-b5d5-459d02465e7e">
+
+## ***How will you solve the problem?***
+The importance of this project lies in its potential to help businesses and individuals develop
+products with an eye towards future demand. Predicting future trade trends can help businesses
+identify new markets to target, as well as optimize their supply chains and pricing strategies. It
+can also help policymakers make informed decisions about trade policies and identify potential
+areas for economic growth. Overall, this project has the potential to be a valuable tool for a wide
+range of stakeholders in Pakistan and beyond.
+We will explore new techniques to solve the problem at hand, specifically using LSTM and
+regression models with lag features derived from previous years' trade data. By utilizing these
+methods, we aim to improve our understanding and potentially achieve more accurate
+predictions.Then it predicts the target variable by using the trained model model and the test input data X_test. The predicted values are stored in y_pred.The for loop iterates through each pair of predicted and actual values.The output shows the predicted value and actual value for each pair of observations in the test set.Then we plot the data into graphs to show visualizations.
+
+<img width="475" alt="v4" src="https://github.com/farheenlatif/project/assets/88893044/0c8f7255-30e6-4994-8de9-f8a1e9647eee">
+
+<img width="477" alt="v5" src="https://github.com/farheenlatif/project/assets/88893044/db4fc444-7571-4f91-904d-6b86817feebb">
 

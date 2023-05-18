@@ -92,6 +92,9 @@ The model is compiled using the Adam optimizer and mean squared error (MSE) loss
 ## ***Model Fitting***
 The model is trained on the training data (X_train and y_train) for a specified number of epochs and batch size. The validation split is set to 0.1, which means that 10% of the training data is used for validation. The verbose parameter is set to 0, which means that the training progress is not printed to the consol.
 
+<img width="709" alt="v8" src="https://github.com/farheenlatif/project/assets/88893044/944de0ed-c3c2-42b6-8041-2ed735b25dc5">
+
+
 ## ***Regression***
 ![Alt text](https://www.imsl.com/sites/default/files/styles/social_preview_image/public/image/2021-06/IMSL%20What%20is%20Regression%20Model%20Blog%20Feature.png?itok=y6F7nJ19)
 ## ***Preprocessing***
@@ -106,6 +109,10 @@ The next step drops columns "Partner" and "Trade Flow" from the df DataFrame, as
 The joining function essentially ensures that the resulting DataFrame has all unique year-country pairs, with missing values filled in with 0. This is important as it allows for the creation of a pivot table where each row represents a unique country and each column represents a unique year.
 
 Overall, these preprocessing steps are preparing the data for analysis by ensuring that all required columns are present, and that there are no missing or duplicate values. It also creates two separate DataFrames for exports and imports, which can be used for further analysis. Finally, it creates a complete DataFrame with all unique year-country pairs, which can be used to create a pivot table for analysis.
+
+<img width="891" alt="v9" src="https://github.com/farheenlatif/project/assets/88893044/b585fbc9-0415-438d-af66-c828da8efef1">
+
+
 ## ***Visualizations***
 The first visualization plots the imports of Pakistan with top 10 countries with respect to Trade Value in dollars of the year 2021.
 
@@ -133,7 +140,10 @@ The data is then scaled using the MinMaxScaler, which scales each feature to a r
 
 A linear regression model is then trained on the training set using the lag and moving average features as inputs and the country's export data as the output. The model is then used to make predictions on the test set.
 
+<img width="302" alt="v10" src="https://github.com/farheenlatif/project/assets/88893044/8d8f138b-4626-40a0-9f4b-dee5623e7fdc">
+
 The root mean squared error `RMSE` is calculated as a measure of the difference between the predicted export values and the actual export values for each country. The for loop iterates over each country's column in the dataset, appending the predicted export values and actual export values to separate lists, which are then used to calculate the overall RMSE for the dataset.
+
 ## ***Scoring Metric***
 RMSE value of 0.056 means that the average difference between the predicted and actual export values for the test set, across all the countries, is about 5.6% of the range of the exported values. Since the exported values are scaled between 0 and 1, this means that the average difference between the predicted and actual export values for the test set is around 0.056, or 5.6% of the total range of the exported values. This is a reasonably low error rate and indicates that the model is performing well in predicting the future exports of these countries based on their past export patterns.
 

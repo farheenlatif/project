@@ -56,6 +56,9 @@ Then we interpolate the missing values in the DataFrame using linear interpolati
 Then the missing values are filled with a forward filling method. Forward filling method fills the missing values with the most recently observed value.
 Then we did the minmax scaling of the data and prepared the input data X and target data y for a machine learning model. It creates a sliding window of past back candles, time steps of the input features from the data_set_scaled dataframe and appends them to X. The target variable is extracted from the last column of data_set_scaled and appended to y. Finally, X and y are converted to numpy arrays.The output X is a 3-dimensional numpy array of shape (number of samples, back candles, number of features), and y is a 2-dimensional numpy array of shape (number of samples, 1).
 
+<img width="602" alt="v7" src="https://github.com/farheenlatif/project/assets/88893044/d81eca4e-34b8-4112-85dc-85c872c37ceb">
+
+
 # ***Models***
 - [LSTM](#index)
 - [Regression](#index)
@@ -150,5 +153,6 @@ predictions.Then it predicts the target variable by using the trained model mode
 
 <img width="475" alt="v4" src="https://github.com/farheenlatif/project/assets/88893044/0c8f7255-30e6-4994-8de9-f8a1e9647eee">
 
-<img width="477" alt="v5" src="https://github.com/farheenlatif/project/assets/88893044/db4fc444-7571-4f91-904d-6b86817feebb">
+<img width="413" alt="v6" src="https://github.com/farheenlatif/project/assets/88893044/1ca05e21-aec8-4c2b-83ba-cd717e59484d">
+
 

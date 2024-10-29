@@ -87,5 +87,7 @@ Upon successful querying, a graph visualization will be generated. This visualiz
 - **Endpoints**:
   - `savedatatodb`: Endpoint to ingest data.
   - `gettransaction`: Endpoint to fetch transactions based on `case_id`.
+  - `delete`: Endpoint to delete a specific file by providing the `case_id`.
+  - `chat`: Endpoint that provides a chat interface for users to query data along with a `case_id`. This endpoint returns both a text response and a graphical visualization in response to the query.
 - **Templates**:
   - `graph.html`: A visual representation of the query results and data relationships.
